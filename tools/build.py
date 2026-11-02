@@ -2,7 +2,7 @@
 import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 VER = "2.2.0"
-SETUP_MB, INSTALLED = "586", "1.5 GB"   # from the release files; update each release. Portable is not offered for now.
+SETUP_MB, INSTALLED = "585", "1.5 GB"   # from the release files; update each release. Portable is not offered for now.
 REL = "https://github.com/rNetGit/ShotReel-app/releases"
 SETUP = f"{REL}/download/v{VER}/ShotReel-Setup-{VER}.exe"
 SUMS = f"{REL}/download/v{VER}/SHA256SUMS.txt"
