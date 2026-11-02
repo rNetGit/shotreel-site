@@ -2,10 +2,9 @@
 import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 VER = "2.2.0"
-SETUP_MB, PORT_MB, INSTALLED = "586", "535", "1.5 GB"   # from the release files; update each release
+SETUP_MB, INSTALLED = "586", "1.5 GB"   # from the release files; update each release. Portable is not offered for now.
 REL = "https://github.com/rNetGit/ShotReel-app/releases"
 SETUP = f"{REL}/download/v{VER}/ShotReel-Setup-{VER}.exe"
-PORT = f"{REL}/download/v{VER}/ShotReel-Portable-{VER}.exe"
 SUMS = f"{REL}/download/v{VER}/SHA256SUMS.txt"
 MAIL = "rnetphone1@gmail.com"
 
@@ -109,7 +108,7 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
         <a class="btn btn-accent" href="install.html">Get ShotReel <span class="arr" aria-hidden="true">&rarr;</span></a>
         <a class="btn btn-outline" href="index.html#how">See how it works</a>
       </div>
-      <p class="small muted" style="margin-top:12px">Download now ({VER}): <a href="{SETUP}" rel="noopener">Installer</a> &middot; <a href="{PORT}" rel="noopener">Portable</a> &middot; Windows 10 and 11, 64-bit</p>
+      <p class="small muted" style="margin-top:12px">Download now ({VER}): <a href="{SETUP}" rel="noopener">Installer</a> &middot; Windows 10 and 11, 64-bit</p>
       <ul class="facts">
         <li>Free, no account</li>
         <li>No watermark, no time limit</li>
@@ -273,7 +272,7 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
 ''' + FOOT
 
 # ---------- install ----------
-install = head("Get ShotReel", "Download ShotReel for Windows 10 and 11: the installer or the portable version, how to check the download, and what to do about the SmartScreen notice.") + header("install") + f'''
+install = head("Get ShotReel", "Download ShotReel for Windows 10 and 11: the installer, how to check the download, and what to do about the SmartScreen notice.") + header("install") + f'''
 <section>
   <div class="wrap" style="max-width:820px">
     <div class="section-head">
@@ -284,22 +283,16 @@ install = head("Get ShotReel", "Download ShotReel for Windows 10 and 11: the ins
 
     <div class="choices" style="margin-bottom:12px">
       <a class="choice" href="{SETUP}" rel="noopener">
-        <span class="ctag beta">Recommended</span>
         {ico('<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>')}
         <strong>Installer</strong>
         <span>A normal install, per user, no admin rights needed. About {SETUP_MB} MB to download.</span>
-      </a>
-      <a class="choice" href="{PORT}" rel="noopener">
-        {ico('<path d="M4 17v3h16v-3M12 4v12M7 11l5 5 5-5"/>')}
-        <strong>Portable</strong>
-        <span>Run it without installing, for example on a borrowed PC. About {PORT_MB} MB to download.</span>
       </a>
     </div>
     <p class="small muted">All versions and notes are on the <a href="{REL}/latest" rel="noopener">release page</a>.</p>
 
     <h2 style="margin-top:40px">Install</h2>
     <ol class="steps">
-      <li><h3>Download</h3><p>Choose the installer, or the portable file if you cannot install software. About {INSTALLED} is used once it is installed, because the voice model, renderer and video tools are bundled.</p></li>
+      <li><h3>Download</h3><p>Download the installer. About {INSTALLED} is used once it is installed, because the voice model, renderer and video tools are bundled.</p></li>
       <li><h3>Run it</h3><p>Double-click the file. If Windows shows a blue <strong>SmartScreen</strong> notice, that is normal for a new publisher's first downloads: choose <strong>More info</strong>, then <strong>Run anyway</strong>. The signature below lets you check who published it.</p></li>
       <li><h3>Make a video</h3><p>Start a project, capture a web or desktop app or import screenshots, write the steps, and choose Export. You get an MP4, captions and a PDF guide.</p></li>
       <li><h3>Updating from 2.0 or 2.1?</h3><p>Install over the old version; your projects stay where they are. Updating is recommended: {VER} renders fully offline (see the <a href="faq.html#privacy">privacy answers</a>).</p></li>
