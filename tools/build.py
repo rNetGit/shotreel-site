@@ -278,7 +278,7 @@ install = head("Get ShotReel", "Download ShotReel for Windows 10 and 11: the ins
     <div class="section-head">
       <div class="eyebrow">Download</div>
       <h1>Get ShotReel {VER}</h1>
-      <p class="muted">For Windows 10 and 11, 64-bit. Both files are code-signed (publisher: Rajesh Katukojwala).</p>
+      <p class="muted">For Windows 10 and 11, 64-bit. The installer is code-signed (publisher: Rajesh Katukojwala).</p>
     </div>
 
     <div class="choices" style="margin-bottom:12px">
