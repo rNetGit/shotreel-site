@@ -1,7 +1,8 @@
 """Writes index.html, install.html and faq.html next to this folder's parent. Run: python3 tools/build.py"""
 import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-VER = "2.0.0"
+VER = "2.2.0"
+SETUP_MB, PORT_MB, INSTALLED_MB = "586", "535", "650"   # from the release files; update each release
 REL = "https://github.com/rNetGit/ShotReel-app/releases"
 SETUP = f"{REL}/download/v{VER}/ShotReel-Setup-{VER}.exe"
 PORT = f"{REL}/download/v{VER}/ShotReel-Portable-{VER}.exe"
@@ -101,7 +102,7 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
 <div class="hero">
   <div class="wrap">
     <div>
-      <a class="pre" href="install.html"><b>{VER}</b> First public release, code-signed</a>
+      <a class="pre" href="index.html#new"><b>{VER}</b> Vertical videos, auto-blur and a fully offline renderer</a>
       <h1>Training videos from your clicks.</h1>
       <p class="lead">ShotReel turns screenshots and clicks into a narrated video, captions and a printable step guide. It runs on your own Windows PC, with no account and no cloud service.</p>
       <div class="btns">
@@ -131,7 +132,7 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
       <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div>
       <div class="step pc"><span class="num">2</span><h3>Narrate</h3><p class="muted" style="margin:0">Type the words for each step, and a built-in offline English voice reads them. Or export the script, edit it with any AI or writer, and import it back.</p></div>
       <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div>
-      <div class="step"><span class="num">3</span><h3>Export</h3><p class="muted" style="margin:0">Get an MP4 at 720p or 1080p, captions as <code>.srt</code> and <code>.vtt</code>, and a step-guide PDF to print or attach to a ticket.</p></div>
+      <div class="step"><span class="num">3</span><h3>Export</h3><p class="muted" style="margin:0">Get an MP4 at 720p or 1080p, or a 9:16 vertical cut for phones, captions as <code>.srt</code> and <code>.vtt</code>, and a step-guide PDF to print or attach to a ticket.</p></div>
     </div>
     <p class="small muted" style="margin-top:16px">Prefer screenshots? Import them, or short screen clips, instead of capturing.</p>
   </div>
@@ -162,11 +163,12 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
       <div>
         <div class="eyebrow">Annotate</div>
         <h2>Point at the thing that matters, hide the thing that does not.</h2>
-        <p>Add boxes, arrows, spotlights, numbered badges and text notes, then zoom in on the part of the screen you are explaining. Blur or redact anything sensitive before it is rendered.</p>
+        <p>Add boxes, arrows, spotlights, numbered badges and text notes, then zoom in on the part of the screen you are explaining. Password, email, phone, card and ID fields are blurred automatically when you capture, and you can blur anything else by hand.</p>
         <ul class="ticks">
           <li>Boxes, arrows, spotlights, badges and text notes</li>
           <li>Zoom to a region of the screen</li>
-          <li>Blur or redaction for customer or internal data</li>
+          <li>Sensitive fields blurred automatically at capture (you can turn it off per project)</li>
+          <li>Blur or redaction by hand for anything else</li>
         </ul>
       </div>
       <div class="shot"><div class="illus" role="img" aria-label="Illustration: a form with one field highlighted by a box and another field blurred out."><div class="illus-row"><i></i><s class="hl"></s></div><div class="illus-row"><i></i><s class="blur"></s></div><div class="illus-row"><i></i><s></s></div></div></div>
@@ -176,11 +178,12 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
       <div>
         <div class="eyebrow">Narrate</div>
         <h2>A voice, without a microphone or a cloud.</h2>
-        <p>Built-in English voices run on your PC. If you would rather have a person or an AI write the words, export the script, edit it anywhere and import it back.</p>
+        <p>Built-in English voices run on your PC. If you would rather have a person or an AI write the words, export the script, edit it anywhere and import it back. Demo mode adds a named guide who opens the video and hands over to your team at the end.</p>
         <ul class="ticks">
           <li>Offline voices, nothing sent to a speech service</li>
           <li>Export the script, edit it, import it back</li>
-          <li>Captions in <code>.srt</code> and <code>.vtt</code></li>
+          <li>Demo mode: a named narrator, with "Narrated by an AI voice" always shown on the opening card</li>
+          <li>Captions in <code>.srt</code> and <code>.vtt</code>, or burned into the video</li>
         </ul>
       </div>
       <div class="shot"><div class="illus" role="img" aria-label="Illustration: a sound wave beside a line of caption text."><div class="illus-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="illus-cap">First, sign in to the admin portal.</div></div></div>
@@ -190,9 +193,12 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
       <div>
         <div class="eyebrow">Export and reuse</div>
         <h2>A video, captions and a guide, from the same steps.</h2>
-        <p>One project gives you an MP4 (720p or 1080p, no watermark), caption files and a printable PDF. When you change one step, only that part is rendered again, and a whole project shares as a single <code>.shotreel</code> file.</p>
+        <p>One project gives you an MP4 (720p, 1080p or 9:16 vertical, no watermark), caption files and a printable PDF. Mark the key steps and ShotReel cuts a 15, 30 or 60 second short. When you change one step, only that part is rendered again, and a whole project shares as a single <code>.shotreel</code> file.</p>
         <ul class="ticks">
           <li>MP4, captions and PDF step guide</li>
+          <li>9:16 vertical and short clips for phones and chat</li>
+          <li>Intranet pack: video, captions, poster, PDF and a ready <code>index.html</code> page</li>
+          <li>Social pack: one MP4 per format, plus caption and hashtag text</li>
           <li>Unchanged parts are not re-rendered</li>
           <li>Share a project as one <code>.shotreel</code> file</li>
         </ul>
@@ -202,7 +208,22 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
   </div>
 </section>
 
-<section class="alt" id="teams">
+<section class="alt" id="new">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What's new in {VER}</div>
+      <h2>Phone-ready videos, safer captures, nothing online</h2>
+    </div>
+    <div class="cols">
+      <div><span class="num">9:16</span><h3>Vertical and short clips</h3><p>A 1080&times;1920 cut that follows each step, short clips capped at 15, 30 or 60 seconds, and Social and Intranet packs that put every file you need in one folder.</p></div>
+      <div><span class="num">Blur</span><h3>Sensitive fields hidden for you</h3><p>Password, email, phone, card and ID fields are blurred as soon as a screen is captured, on the web and in Windows apps.</p></div>
+      <div><span class="num">Offline</span><h3>Rendering makes no network connections</h3><p>Fonts are bundled and the renderer's usage reporting is switched off. Earlier versions (2.0.0 to 2.1.2) could contact an analytics service and download fonts while rendering when the PC was online; please update.</p></div>
+    </div>
+    <p class="small muted" style="margin-top:16px">Also new: demo mode with a named AI narrator, a render progress bar, and security fixes from a full code review.</p>
+  </div>
+</section>
+
+<section id="teams">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Why teams use it</div>
@@ -211,7 +232,7 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
     <div class="table-wrap"><table>
       <thead><tr><th>Concern</th><th>Answer</th></tr></thead>
       <tbody>
-        <tr><td>Our screens contain customer or internal data</td><td>Everything is processed on the computer. Redaction tools are built in.</td></tr>
+        <tr><td>Our screens contain customer or internal data</td><td>Everything is processed on the computer, and capturing, narrating and rendering make no network connections. Sensitive fields are blurred automatically, and redaction tools are built in.</td></tr>
         <tr><td>We cannot use cloud tools</td><td>There is no cloud service to approve, and no account or sign-in.</td></tr>
         <tr><td>We do not want another subscription</td><td>The free version has no time limit, watermark or project cap.</td></tr>
         <tr><td>We need to review it</td><td>The installer is code-signed, and the licence and third-party notices ship with the download.</td></tr>
@@ -220,7 +241,7 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
   </div>
 </section>
 
-<section id="free">
+<section id="free" class="alt">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Price</div>
@@ -230,7 +251,7 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
     <div class="cols">
       <div><span class="num">Free</span><h3>Use it at work</h3><p>Free to use, including at work. You may not resell or redistribute ShotReel.</p></div>
       <div><span class="num">Needs</span><h3>A normal Windows PC</h3><p>Windows 10 or 11 (64-bit), about 2 GB of free disk space and 8 GB of RAM recommended. Rendering uses the CPU, so a longer video takes longer.</p></div>
-      <div><span class="num">Size</span><h3>About 650 MB installed</h3><p>The voice model, renderer and video tools are bundled, so it works with no further downloads.</p></div>
+      <div><span class="num">Size</span><h3>About {INSTALLED_MB} MB installed</h3><p>The voice model, renderer and video tools are bundled, so it works with no further downloads.</p></div>
     </div>
   </div>
 </section>
@@ -266,21 +287,22 @@ install = head("Get ShotReel", "Download ShotReel for Windows 10 and 11: the ins
         <span class="ctag beta">Recommended</span>
         {ico('<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>')}
         <strong>Installer</strong>
-        <span>A normal install, per user, no admin rights needed. About 586 MB to download.</span>
+        <span>A normal install, per user, no admin rights needed. About {SETUP_MB} MB to download.</span>
       </a>
       <a class="choice" href="{PORT}" rel="noopener">
         {ico('<path d="M4 17v3h16v-3M12 4v12M7 11l5 5 5-5"/>')}
         <strong>Portable</strong>
-        <span>Run it without installing, for example on a borrowed PC. About 535 MB to download.</span>
+        <span>Run it without installing, for example on a borrowed PC. About {PORT_MB} MB to download.</span>
       </a>
     </div>
     <p class="small muted">All versions and notes are on the <a href="{REL}/latest" rel="noopener">release page</a>.</p>
 
     <h2 style="margin-top:40px">Install</h2>
     <ol class="steps">
-      <li><h3>Download</h3><p>Choose the installer, or the portable file if you cannot install software. About 650 MB is used once it is installed, because the voice model, renderer and video tools are bundled.</p></li>
+      <li><h3>Download</h3><p>Choose the installer, or the portable file if you cannot install software. About {INSTALLED_MB} MB is used once it is installed, because the voice model, renderer and video tools are bundled.</p></li>
       <li><h3>Run it</h3><p>Double-click the file. If Windows shows a blue <strong>SmartScreen</strong> notice, that is normal for a new publisher's first downloads: choose <strong>More info</strong>, then <strong>Run anyway</strong>. The signature below lets you check who published it.</p></li>
       <li><h3>Make a video</h3><p>Start a project, capture a web or desktop app or import screenshots, write the steps, and choose Export. You get an MP4, captions and a PDF guide.</p></li>
+      <li><h3>Updating from 2.0 or 2.1?</h3><p>Install over the old version; your projects stay where they are. Updating is recommended: {VER} renders fully offline (see the <a href="faq.html#privacy">privacy answers</a>).</p></li>
     </ol>
 
     <h2 style="margin-top:8px" id="verify">Check the download</h2>
@@ -334,17 +356,19 @@ faq = head("ShotReel FAQ", "Plain answers about ShotReel: cost, privacy, Windows
   + qa("Will it stay free?", "The core features in this version stay free, and nothing you have today will be taken away. Later versions may add paid extras for teams, such as 4K output, batch rendering and branding.") \
   + qa("Can I resell it or hand out copies?", f'No. You may use it, including at work, but you may not resell or redistribute it. Point people to this site instead. The full terms are in the <a href="https://github.com/rNetGit/ShotReel-app/blob/main/EULA.txt" rel="noopener">EULA</a>.') \
   + '''
-    <h2 style="margin-top:32px">Privacy</h2>
+    <h2 style="margin-top:32px" id="privacy">Privacy</h2>
 ''' + qa("Does it upload my screens?", "No. Capture, voice and rendering all run on your PC. There is no account, no cloud service and no API key to set up.") \
-  + qa("Our screens contain customer data. Is that a problem?", "Everything is processed on the computer, and ShotReel has blur and redaction tools so sensitive parts are hidden before the video is rendered. Check the finished video before you share it, as you would any recording.") \
+  + qa("Does it connect to the internet?", f"Not in {VER}. Capturing, narrating and rendering make no network connections, and there is no update check or usage reporting. The web recorder opens the sites you choose to record, as a browser would. Versions 2.0.0 to 2.1.2: when the PC was online, the rendering step sent anonymous usage statistics (such as the renderer version, operating system and processor) to the renderer's analytics service, and downloaded fonts from Google Fonts (the font request listed which letters appear in the video, not the text itself). We found no screenshots, narration or project text in either, but it did not match what we promised, so {VER} removes both. Please update.") \
+  + qa("Our screens contain customer data. Is that a problem?", "Everything is processed on the computer. Password, email, phone, card and ID fields are blurred automatically when you capture, and you can blur or redact anything else before the video is rendered. Check the finished video before you share it, as you would any recording.") \
+  + qa("Is the narrator a real person?", "No. All voices are built-in computer voices. In demo mode you can give the narrator a name, and the opening card always says \"Narrated by an AI voice\".") \
   + qa("Can the voice use an AI service?", "The built-in voices are offline. If you want AI-written narration, you can export the script, edit it with any AI or writer on your own terms, and import it back.") \
   + '''
     <h2 style="margin-top:32px">Using it</h2>
 ''' + qa("Which computers does it run on?", "Windows 10 and 11, 64-bit. Plan for about 2 GB of free disk space and 8 GB of RAM. There is no Mac or Linux version yet.") \
   + qa("What does it capture?", "Web apps, where every click becomes a step with the box already placed, and Windows desktop apps, where the clicked control is named for you. You can also import screenshots and short screen clips.") \
-  + qa("What do I get out?", "An MP4 at 720p or 1080p with no watermark, captions as <code>.srt</code> and <code>.vtt</code>, and a step-guide PDF.") \
+  + qa("What do I get out?", "An MP4 at 720p, 1080p or 9:16 vertical with no watermark, short clips of 15, 30 or 60 seconds, captions as <code>.srt</code> and <code>.vtt</code>, and a step-guide PDF. The Intranet pack adds a poster image and a ready <code>index.html</code> page; the Social pack adds caption and hashtag text.") \
   + qa("Which languages can it speak?", "The built-in offline voices are English. Captions and the PDF contain whatever text you write.") \
-  + qa("Why is it so large?", "About 650 MB installed, because the voice model, renderer and video tools are bundled. That is what lets it work offline.") \
+  + qa("Why is it so large?", f"About {INSTALLED_MB} MB installed, because the voice model, renderer and video tools are bundled. That is what lets it work offline.") \
   + qa("Can I share a project?", "Yes. A project saves as a single <code>.shotreel</code> file you can send to a colleague who has ShotReel.") \
   + f'''
     <h2 style="margin-top:32px" id="contact">Contact</h2>

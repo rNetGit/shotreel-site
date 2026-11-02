@@ -50,14 +50,22 @@
       <p>No. You may use it, including at work, but you may not resell or redistribute it. Point people to this site instead. The full terms are in the <a href="https://github.com/rNetGit/ShotReel-app/blob/main/EULA.txt" rel="noopener">EULA</a>.</p>
     </details>
 
-    <h2 style="margin-top:32px">Privacy</h2>
+    <h2 style="margin-top:32px" id="privacy">Privacy</h2>
     <details>
       <summary>Does it upload my screens?</summary>
       <p>No. Capture, voice and rendering all run on your PC. There is no account, no cloud service and no API key to set up.</p>
     </details>
     <details>
+      <summary>Does it connect to the internet?</summary>
+      <p>Not in 2.2.0. Capturing, narrating and rendering make no network connections, and there is no update check or usage reporting. The web recorder opens the sites you choose to record, as a browser would. Versions 2.0.0 to 2.1.2: when the PC was online, the rendering step sent anonymous usage statistics (such as the renderer version, operating system and processor) to the renderer's analytics service, and downloaded fonts from Google Fonts (the font request listed which letters appear in the video, not the text itself). We found no screenshots, narration or project text in either, but it did not match what we promised, so 2.2.0 removes both. Please update.</p>
+    </details>
+    <details>
       <summary>Our screens contain customer data. Is that a problem?</summary>
-      <p>Everything is processed on the computer, and ShotReel has blur and redaction tools so sensitive parts are hidden before the video is rendered. Check the finished video before you share it, as you would any recording.</p>
+      <p>Everything is processed on the computer. Password, email, phone, card and ID fields are blurred automatically when you capture, and you can blur or redact anything else before the video is rendered. Check the finished video before you share it, as you would any recording.</p>
+    </details>
+    <details>
+      <summary>Is the narrator a real person?</summary>
+      <p>No. All voices are built-in computer voices. In demo mode you can give the narrator a name, and the opening card always says "Narrated by an AI voice".</p>
     </details>
     <details>
       <summary>Can the voice use an AI service?</summary>
@@ -75,7 +83,7 @@
     </details>
     <details>
       <summary>What do I get out?</summary>
-      <p>An MP4 at 720p or 1080p with no watermark, captions as <code>.srt</code> and <code>.vtt</code>, and a step-guide PDF.</p>
+      <p>An MP4 at 720p, 1080p or 9:16 vertical with no watermark, short clips of 15, 30 or 60 seconds, captions as <code>.srt</code> and <code>.vtt</code>, and a step-guide PDF. The Intranet pack adds a poster image and a ready <code>index.html</code> page; the Social pack adds caption and hashtag text.</p>
     </details>
     <details>
       <summary>Which languages can it speak?</summary>
