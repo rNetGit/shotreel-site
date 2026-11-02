@@ -2,7 +2,7 @@
 import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 VER = "2.2.0"
-SETUP_MB, PORT_MB, INSTALLED_MB = "586", "535", "650"   # from the release files; update each release
+SETUP_MB, PORT_MB, INSTALLED = "586", "535", "1.5 GB"   # from the release files; update each release
 REL = "https://github.com/rNetGit/ShotReel-app/releases"
 SETUP = f"{REL}/download/v{VER}/ShotReel-Setup-{VER}.exe"
 PORT = f"{REL}/download/v{VER}/ShotReel-Portable-{VER}.exe"
@@ -250,8 +250,8 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
     </div>
     <div class="cols">
       <div><span class="num">Free</span><h3>Use it at work</h3><p>Free to use, including at work. You may not resell or redistribute ShotReel.</p></div>
-      <div><span class="num">Needs</span><h3>A normal Windows PC</h3><p>Windows 10 or 11 (64-bit), about 2 GB of free disk space and 8 GB of RAM recommended. Rendering uses the CPU, so a longer video takes longer.</p></div>
-      <div><span class="num">Size</span><h3>About {INSTALLED_MB} MB installed</h3><p>The voice model, renderer and video tools are bundled, so it works with no further downloads.</p></div>
+      <div><span class="num">Needs</span><h3>A normal Windows PC</h3><p>Windows 10 or 11 (64-bit), about 3 GB of free disk space and 8 GB of RAM recommended. Rendering uses the CPU, so a longer video takes longer.</p></div>
+      <div><span class="num">Size</span><h3>About {INSTALLED} installed</h3><p>The voice model, renderer and video tools are bundled, so it works with no further downloads.</p></div>
     </div>
   </div>
 </section>
@@ -299,7 +299,7 @@ install = head("Get ShotReel", "Download ShotReel for Windows 10 and 11: the ins
 
     <h2 style="margin-top:40px">Install</h2>
     <ol class="steps">
-      <li><h3>Download</h3><p>Choose the installer, or the portable file if you cannot install software. About {INSTALLED_MB} MB is used once it is installed, because the voice model, renderer and video tools are bundled.</p></li>
+      <li><h3>Download</h3><p>Choose the installer, or the portable file if you cannot install software. About {INSTALLED} is used once it is installed, because the voice model, renderer and video tools are bundled.</p></li>
       <li><h3>Run it</h3><p>Double-click the file. If Windows shows a blue <strong>SmartScreen</strong> notice, that is normal for a new publisher's first downloads: choose <strong>More info</strong>, then <strong>Run anyway</strong>. The signature below lets you check who published it.</p></li>
       <li><h3>Make a video</h3><p>Start a project, capture a web or desktop app or import screenshots, write the steps, and choose Export. You get an MP4, captions and a PDF guide.</p></li>
       <li><h3>Updating from 2.0 or 2.1?</h3><p>Install over the old version; your projects stay where they are. Updating is recommended: {VER} renders fully offline (see the <a href="faq.html#privacy">privacy answers</a>).</p></li>
@@ -364,11 +364,11 @@ faq = head("ShotReel FAQ", "Plain answers about ShotReel: cost, privacy, Windows
   + qa("Can the voice use an AI service?", "The built-in voices are offline. If you want AI-written narration, you can export the script, edit it with any AI or writer on your own terms, and import it back.") \
   + '''
     <h2 style="margin-top:32px">Using it</h2>
-''' + qa("Which computers does it run on?", "Windows 10 and 11, 64-bit. Plan for about 2 GB of free disk space and 8 GB of RAM. There is no Mac or Linux version yet.") \
+''' + qa("Which computers does it run on?", "Windows 10 and 11, 64-bit. Plan for about 3 GB of free disk space and 8 GB of RAM. There is no Mac or Linux version yet.") \
   + qa("What does it capture?", "Web apps, where every click becomes a step with the box already placed, and Windows desktop apps, where the clicked control is named for you. You can also import screenshots and short screen clips.") \
   + qa("What do I get out?", "An MP4 at 720p, 1080p or 9:16 vertical with no watermark, short clips of 15, 30 or 60 seconds, captions as <code>.srt</code> and <code>.vtt</code>, and a step-guide PDF. The Intranet pack adds a poster image and a ready <code>index.html</code> page; the Social pack adds caption and hashtag text.") \
   + qa("Which languages can it speak?", "The built-in offline voices are English. Captions and the PDF contain whatever text you write.") \
-  + qa("Why is it so large?", f"About {INSTALLED_MB} MB installed, because the voice model, renderer and video tools are bundled. That is what lets it work offline.") \
+  + qa("Why is it so large?", f"About {INSTALLED} installed, because the voice model, renderer and video tools are bundled. That is what lets it work offline.") \
   + qa("Can I share a project?", "Yes. A project saves as a single <code>.shotreel</code> file you can send to a colleague who has ShotReel.") \
   + f'''
     <h2 style="margin-top:32px" id="contact">Contact</h2>
