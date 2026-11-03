@@ -1,7 +1,7 @@
 """Writes index.html, install.html and faq.html next to this folder's parent. Run: python3 tools/build.py"""
 import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-VER = "2.2.1"
+VER = "2.2.2"
 SETUP_MB, INSTALLED = "585", "1.5 GB"   # from the release files; update each release. Portable is not offered for now.
 REL = "https://github.com/rNetGit/ShotReel-app/releases"
 SETUP = f"{REL}/download/v{VER}/ShotReel-Setup-{VER}.exe"
@@ -218,7 +218,7 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
       <div><span class="num">Blur</span><h3>Sensitive fields hidden for you</h3><p>Password, email, phone, card and ID fields are blurred as soon as a screen is captured, on the web and in Windows apps.</p></div>
       <div><span class="num">Offline</span><h3>Rendering makes no network connections</h3><p>Fonts are bundled and the renderer's usage reporting is switched off. Earlier versions (2.0.0 to 2.1.2) could contact an analytics service and download fonts while rendering when the PC was online; please update.</p></div>
     </div>
-    <p class="small muted" style="margin-top:16px">Also new: demo mode with a named AI narrator, a render progress bar, and security fixes from a full code review.</p>
+    <p class="small muted" style="margin-top:16px">Also new: a Pace setting and per-step hold for slower walkthroughs, demo mode with a named AI narrator, a render progress bar, and security fixes from a full code review.</p>
   </div>
 </section>
 
