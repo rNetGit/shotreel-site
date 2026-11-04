@@ -1,10 +1,11 @@
 """Writes index.html, install.html and faq.html next to this folder's parent. Run: python3 tools/build.py"""
 import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-VER = "2.2.3"
-SETUP_MB, INSTALLED = "585", "1.5 GB"   # from the release files; update each release. Portable is not offered for now.
+VER = "2.3.0"
+SETUP_MB, PORTABLE_MB, INSTALLED = "575", "670", "1.5 GB"   # from the release files; update each release.
 REL = "https://github.com/rNetGit/ShotReel-app/releases"
 SETUP = f"{REL}/download/v{VER}/ShotReel-Setup-{VER}.exe"
+PORTABLE = f"{REL}/download/v{VER}/ShotReel-Portable-{VER}.zip"
 SUMS = f"{REL}/download/v{VER}/SHA256SUMS.txt"
 MAIL = "rnetphone1@gmail.com"
 
@@ -101,14 +102,14 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
 <div class="hero">
   <div class="wrap">
     <div>
-      <a class="pre" href="index.html#new"><b>{VER}</b> Vertical videos, auto-blur and a fully offline renderer</a>
+      <a class="pre" href="index.html#new"><b>{VER}</b> Bigger screens, zoom on each field, and a portable version</a>
       <h1>Training videos from your clicks.</h1>
       <p class="lead">ShotReel turns screenshots and clicks into a narrated video, captions and a printable step guide. It runs on your own Windows PC, with no account and no cloud service.</p>
       <div class="btns">
         <a class="btn btn-accent" href="install.html">Get ShotReel <span class="arr" aria-hidden="true">&rarr;</span></a>
         <a class="btn btn-outline" href="index.html#how">See how it works</a>
       </div>
-      <p class="small muted" style="margin-top:12px">Download now ({VER}): <a href="{SETUP}" rel="noopener">Installer</a> &middot; Windows 10 and 11, 64-bit</p>
+      <p class="small muted" style="margin-top:12px">Download now ({VER}): <a href="{SETUP}" rel="noopener">Installer</a> &middot; <a href="{PORTABLE}" rel="noopener">Portable zip</a> &middot; Windows 10 and 11, 64-bit</p>
       <ul class="facts">
         <li>Free, no account</li>
         <li>No watermark, no time limit</li>
@@ -211,14 +212,14 @@ index = head("ShotReel for Windows", "ShotReel is a free Windows app that turns 
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">What's new in {VER}</div>
-      <h2>Phone-ready videos, safer captures, nothing online</h2>
+      <h2>Bigger screens, closer looks, nothing to install</h2>
     </div>
     <div class="cols">
-      <div><span class="num">9:16</span><h3>Vertical and short clips</h3><p>A 1080&times;1920 cut that follows each step, short clips capped at 15, 30 or 60 seconds, and Social and Intranet packs that put every file you need in one folder.</p></div>
-      <div><span class="num">Blur</span><h3>Sensitive fields hidden for you</h3><p>Password, email, phone, card and ID fields are blurred as soon as a screen is captured, on the web and in Windows apps.</p></div>
-      <div><span class="num">Offline</span><h3>Rendering makes no network connections</h3><p>Fonts are bundled and the renderer's usage reporting is switched off. Earlier versions (2.0.0 to 2.1.2) could contact an analytics service and download fonts while rendering when the PC was online; please update.</p></div>
+      <div><span class="num">1.5&times;</span><h3>Full screen layout</h3><p>The screenshot fills the frame. A slim header shows the screen title and step progress, and the current step appears as a caption card.</p></div>
+      <div><span class="num">Zoom</span><h3>Zoom to each field</h3><p>While a step is narrated, the camera moves in on the highlighted field, label included, then returns to the whole screen before the next page.</p></div>
+      <div><span class="num">Zip</span><h3>Portable version</h3><p>Extract the zip and run it. Projects and settings stay in a folder next to the app, and nothing is installed.</p></div>
     </div>
-    <p class="small muted" style="margin-top:16px">Also new: a Pace setting and per-step hold for slower walkthroughs, demo mode with a named AI narrator, a render progress bar, and security fixes from a full code review.</p>
+    <p class="small muted" style="margin-top:16px">Also new: security fixes from a second full code review (including stopping the renderer's daily update check). Still included: vertical videos and short clips, automatic blur of sensitive fields, Pace and per-step hold, demo mode, and fully offline rendering.</p>
   </div>
 </section>
 
@@ -278,7 +279,7 @@ install = head("Get ShotReel", "Download ShotReel for Windows 10 and 11: the ins
     <div class="section-head">
       <div class="eyebrow">Download</div>
       <h1>Get ShotReel {VER}</h1>
-      <p class="muted">For Windows 10 and 11, 64-bit. The installer is code-signed (publisher: Rajesh Katukojwala).</p>
+      <p class="muted">For Windows 10 and 11, 64-bit. The installer and the programs in the portable zip are code-signed (publisher: Rajesh Katukojwala).</p>
     </div>
 
     <div class="choices" style="margin-bottom:12px">
@@ -286,6 +287,11 @@ install = head("Get ShotReel", "Download ShotReel for Windows 10 and 11: the ins
         {ico('<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>')}
         <strong>Installer</strong>
         <span>A normal install, per user, no admin rights needed. About {SETUP_MB} MB to download.</span>
+      </a>
+      <a class="choice" href="{PORTABLE}" rel="noopener">
+        {ico('<path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/>')}
+        <strong>Portable zip</strong>
+        <span>Nothing to install: extract and run ShotReel.exe. Projects stay in the folder. About {PORTABLE_MB} MB to download.</span>
       </a>
     </div>
     <p class="small muted">All versions and notes are on the <a href="{REL}/latest" rel="noopener">release page</a>.</p>
@@ -295,7 +301,8 @@ install = head("Get ShotReel", "Download ShotReel for Windows 10 and 11: the ins
       <li><h3>Download</h3><p>Download the installer. About {INSTALLED} is used once it is installed, because the voice model, renderer and video tools are bundled.</p></li>
       <li><h3>Run it</h3><p>Double-click the file. If Windows shows a blue <strong>SmartScreen</strong> notice, that is normal for a new publisher's first downloads: choose <strong>More info</strong>, then <strong>Run anyway</strong>. The signature below lets you check who published it.</p></li>
       <li><h3>Make a video</h3><p>Start a project, capture a web or desktop app or import screenshots, write the steps, and choose Export. You get an MP4, captions and a PDF guide.</p></li>
-      <li><h3>Updating from 2.0 or 2.1?</h3><p>Install over the old version; your projects stay where they are. Updating is recommended: {VER} renders fully offline (see the <a href="faq.html#privacy">privacy answers</a>).</p></li>
+      <li><h3>Portable instead?</h3><p>Extract the whole zip to a folder you can write to (for example under your user folder, not Program Files) and run <code>ShotReel.exe</code> from there, not from inside the zip. Projects and settings are kept in its <code>data</code> folder; delete the folder to remove ShotReel.</p></li>
+      <li><h3>Updating from an earlier version?</h3><p>Install over the old version; your projects stay where they are. Updating is recommended: {VER} includes security fixes and renders fully offline (see the <a href="faq.html#privacy">privacy answers</a>).</p></li>
     </ol>
 
     <h2 style="margin-top:8px" id="verify">Check the download</h2>
@@ -303,7 +310,7 @@ install = head("Get ShotReel", "Download ShotReel for Windows 10 and 11: the ins
     <details open>
       <summary>Check the file's SHA-256</summary>
       <p>Download <a href="{SUMS}" rel="noopener"><code>SHA256SUMS.txt</code></a> from the release, then in PowerShell (from the folder with the file):</p>
-      <p><code>Get-FileHash .\\ShotReel-Setup-{VER}.exe -Algorithm SHA256</code></p>
+      <p><code>Get-FileHash .\\ShotReel-Setup-{VER}.exe -Algorithm SHA256</code> (or <code>.\\ShotReel-Portable-{VER}.zip</code>)</p>
       <p>The hash must match the line for that file in <code>SHA256SUMS.txt</code>.</p>
     </details>
     <details>
@@ -351,7 +358,7 @@ faq = head("ShotReel FAQ", "Plain answers about ShotReel: cost, privacy, Windows
   + '''
     <h2 style="margin-top:32px" id="privacy">Privacy</h2>
 ''' + qa("Does it upload my screens?", "No. Capture, voice and rendering all run on your PC. There is no account, no cloud service and no API key to set up.") \
-  + qa("Does it connect to the internet?", f"Not in {VER}. Capturing, narrating and rendering make no network connections, and there is no update check or usage reporting. The web recorder opens the sites you choose to record, as a browser would. Versions 2.0.0 to 2.1.2: when the PC was online, the rendering step sent anonymous usage statistics (such as the renderer version, operating system and processor) to the renderer's analytics service, and downloaded fonts from Google Fonts (the font request listed which letters appear in the video, not the text itself). We found no screenshots, narration or project text in either, but it did not match what we promised, so {VER} removes both. Please update.") \
+  + qa("Does it connect to the internet?", f"Not in {VER}. Capturing, narrating and rendering make no network connections, and there is no update check or usage reporting. The web recorder opens the sites you choose to record, as a browser would. Versions 2.0.0 to 2.1.2: when the PC was online, the rendering step sent anonymous usage statistics (such as the renderer version, operating system and processor) to the renderer's analytics service, and downloaded fonts from Google Fonts (the font request listed which letters appear in the video, not the text itself). We found no screenshots, narration or project text in either, but it did not match what we promised, so 2.2.0 and later remove both. Please update.") \
   + qa("Our screens contain customer data. Is that a problem?", "Everything is processed on the computer. Password, email, phone, card and ID fields are blurred automatically when you capture, and you can blur or redact anything else before the video is rendered. Check the finished video before you share it, as you would any recording.") \
   + qa("Is the narrator a real person?", "No. All voices are built-in computer voices. In demo mode you can give the narrator a name, and the opening card always says \"Narrated by an AI voice\".") \
   + qa("Can the voice use an AI service?", "The built-in voices are offline. If you want AI-written narration, you can export the script, edit it with any AI or writer on your own terms, and import it back.") \
